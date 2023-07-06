@@ -2,7 +2,6 @@ package Geoff.com.controllers;
 
 import Geoff.com.models.Employee;
 import Geoff.com.services.EmployeeService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +21,10 @@ public class MyController {
     public Employee showRecord(@PathVariable("num")int empno){
         return empservice.showOneRecord(empno);
     }
+
     @PostMapping("/add")
-    public String saveRecord(@RequestBody Employee emp){
-        return empservice.saveRecord(emp);
+    public String saveRecord(@RequestBody Employee emprec){
+        return empservice.saveRecord(emprec);
     }
 
     @GetMapping("/showAll")
@@ -33,12 +33,12 @@ public class MyController {
         return ref;
     }
 
-    @GetMapping("employeeWithName/{name}")
+    @GetMapping("namesearch/{name}")
     public List<Employee> getEmployeeByName(@PathVariable("name")String na){
         return empservice.getEmployeeByName(na);
     }
 
-    @GetMapping("dsearch/{dept}")
+    @GetMapping("depsearch/{dept}")
     public List<Employee> getEmployeesByDept(@PathVariable("dept")String de){
         return empservice.getEmployeesByDept(de);
     }
