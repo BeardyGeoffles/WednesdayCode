@@ -44,5 +44,8 @@ public class EmployeeService {
         repo.deleteByName(nam);
         return "Record Deleted Successfully";
         }
+        public List<Employee> showRecords(){
+        return repo.findAll();
+    }
 
 }

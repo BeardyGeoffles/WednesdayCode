@@ -23,8 +23,8 @@ public class MyController {
     }
 
     @PostMapping("/add")
-    public String saveRecord(@RequestBody Employee emprec){
-        return empservice.saveRecord(emprec);
+    public String saveRecord(@RequestBody Employee emp){
+        return empservice.saveRecord(emp);
     }
 
     @GetMapping("/showAll")
@@ -33,17 +33,21 @@ public class MyController {
         return ref;
     }
 
-    @GetMapping("namesearch/{name}")
+    @GetMapping("/namesearch/{name}")
     public List<Employee> getEmployeeByName(@PathVariable("name")String na){
         return empservice.getEmployeeByName(na);
     }
 
-    @GetMapping("depsearch/{dept}")
+    @GetMapping("/depsearch/{dept}")
     public List<Employee> getEmployeesByDept(@PathVariable("dept")String de){
         return empservice.getEmployeesByDept(de);
     }
-    @DeleteMapping("del/{name}")
+    @DeleteMapping("/del/{name}")
     public String deleteEmployeeByName(@PathVariable("name") String nam){
         return empservice.deleteEmployeeByName(nam);
     }
+
+
+
+
 }
